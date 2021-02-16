@@ -1,11 +1,12 @@
-from playsound import playsound
+import simpleaudio as sa
 from time import sleep
-from threading import Thread
 import os
 
 def music():
-    song = 'judul lagu.mp3' #ganti judul lagu sesuai keinginan
-    playsound(song)
+    global play_obj
+    song = 'hingga-akhir-waktu.wav' #hanya bisa  memutar audio dengan format wav,
+    wave_obj = sa.WaveObject.from_wave_file(song)
+    play_obj = wave_obj.play()
 
 def run_text(text):
     for i in text:
@@ -13,22 +14,45 @@ def run_text(text):
         sleep(0.09)
 
 def list_text():
-    text_list = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n", #sesuaikan dengan kalimat yang  diinginkan
-        "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n"
+    text_list = ["Aku tak pandai merangkai sebuah kata\n",
+        "Aku pun tak pandai dalam hal bercerita\n",
+        "Jika diizinkan bercerita apa yang aku bisa\n",
+        "Akupun bingung harus jawab apa\n\n"
+
+        "Tapi yang ku tahu aku punya rindu\n",
+        "Rindu pada seseorang yang sudah lama tidak bertemu\n",
+        "Bertemu pun entah kapan\n",
+        "Entah akan jadi kenyataan atau hanya sebuah harapan\n\n",
+
+        "Nama dia adalah ???????????\n",
+        "Gadis yang ku kenal melalui pesan WA\n",
+        "Gadis ngeselin kadang juga ngangenin\n",
+        "Yang selalu membuat ku emosi kadang tertawa\n\n",
+
+        "Semoga suatu hari nanti kita bisa bertemu\n",
+        "Agar rindu ini terbalaskan tidak membatu\n",
+        "Membuat cerita nyata Kembali tanpa halu\n",
+        "Hingga akhirnya ku bisa berucap I LOVE YOU\n\n"
         ]
     for i in text_list:
         run_text(i)
         sleep(1.5)
 
+play_obj = "variabel global, nantinya akan di replace dengan value yang ada di function music"
+
 while(True):
-    a = input("enter : ")
-    if(a == ""):
+    a = input("enter kalau mau mulai (^_^) : ")
+    if (a == ""):
         os.system("cls")
 
-        musik = Thread(target=music)
-        musik.start()
+        music()
 
-        teks = Thread(target=list_text)
-        teks.start()
+        list_text()
+
+        print("dah gitu aja, bingung mau apa lagi :v")
+        b = input("enter aja kalau mau berhenti : ")
+        if (b == "" or b !=""):
+            play_obj.stop()
+            break
     else:
-        print("please enter \n")
+        print("harus enter sayang ku jangan yang lain -_- \n")
