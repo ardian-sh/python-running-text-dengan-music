@@ -4,7 +4,7 @@ from threading import Thread
 import os
 
 def music():
-    song = 'Hingga Akhir Waktu.mp3'
+    song = 'judul lagu.mp3' #ganti judul lagu sesuai keinginan
     playsound(song)
 
 def run_text(text):
@@ -13,25 +13,8 @@ def run_text(text):
         sleep(0.09)
 
 def list_text():
-    text_list = ["Aku tak pandai merangkai sebuah kata\n",
-        "Aku pun tak pandai dalam hal bercerita\n",
-        "Jika diizinkan bercerita apa yang aku bisa\n",
-        "Akupun bingung harus jawab apa\n\n",
-
-        "Tapi yang ku tahu aku punya rindu\n",
-        "Rindu pada seseorang yang sudah lama tidak bertemu\n",
-        "Bertemu pun entah kapan\n",
-        "Entah akan jadi kenyataan atau hanya sebuah harapan\n\n",
-
-        "Nama dia adalah ???????????\n",
-        "Gadis yang ku kenal melalui Kuliah Kerja Nyata\n",
-        "Gadis ngeselin kadang juga ngangenin\n",
-        "Yang selalu membuat ku emosi kadang tertawa\n\n",
-
-        "Semoga suatu hari nanti kita bisa bertemu\n",
-        "Agar rindu ini terbalaskan tidak membatu\n",
-        "Membuat cerita nyata Kembali tanpa halu\n",
-        "Hingga akhirnya ku bisa berucap I LOVE YOU\n"
+    text_list = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n", #sesuaikan dengan kalimat yang  diinginkan
+        "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n"
         ]
     for i in text_list:
         run_text(i)
